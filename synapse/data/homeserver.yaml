@@ -1,0 +1,41 @@
+server_name: "jitsidevops.website"
+pid_file: /data/homeserver.pid
+
+# Глобальные TLS пути
+tls_certificate_path: "/data/cert.pem"
+tls_private_key_path: "/data/key.pem"
+
+listeners:
+  # Client API — HTTP через NPM, TLS не нужен
+  - port: 8008
+    type: http
+    tls: false
+    bind_addresses: ['0.0.0.0']
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+
+  # Federation — TLS включен
+  - port: 8448
+    type: http
+    tls: true
+    bind_addresses: ['0.0.0.0']
+    resources:
+      - names: [federation]
+
+database:
+  name: sqlite3
+  args:
+    database: /data/homeserver.db
+
+log_config: "/data/jitsidevops.website.log.config"
+media_store_path: /data/media_store
+
+registration_shared_secret: "S0DAC0wcua&s*IoELRgB:N^YZe7NH:XdxJN--sS20QhfjQdP@F"
+report_stats: false
+macaroon_secret_key: "I*BoKZyY8EbT^+TXY6zgDBiZJZ#3wpGic@+;bNr#g9-b9d1rZ:"
+form_secret: "~b0ub9gnslNM5k,COyqr5wUmnX+x5wzu9#LX~#gkia2QN~CfgB"
+signing_key_path: "/data/jitsidevops.website.signing.key"
+
+trusted_key_servers:
+  - server_name: "matrix.org"
