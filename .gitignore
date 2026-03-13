@@ -1,0 +1,11 @@
+# Ignore NPM data
+npm/data/*
+!npm/data/.gitkeep
+
+# Ignore letsencrypt certificates
+npm/letsencrypt/*
+!npm/letsencrypt/.gitkeep
+
+# Ignore synapse data
+synapse/data/*
+!synapse/data/.gitkeep

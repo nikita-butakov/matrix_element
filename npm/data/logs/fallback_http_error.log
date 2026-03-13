@@ -1,2 +1,0 @@
-2026/03/12 20:45:29 [alert] 198#198: *1603 512 worker_connections are not enough while connecting to upstream, client: 127.0.0.1, server: localhost-nginx-proxy-manager, request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:80/favicon.ico", host: "51.102.120.38"
-2026/03/12 20:45:37 [error] 197#197: *1610 open() "/var/www/html/.well-known/security.txt" failed (2: No such file or directory), client: 199.45.154.149, server: localhost-nginx-proxy-manager, request: "GET /.well-known/security.txt HTTP/1.1", host: "51.102.120.38"
