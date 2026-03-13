@@ -8,7 +8,7 @@ services:
     volumes:
       - ./synapse/data:/data
     environment:
-      - SYNAPSE_SERVER_NAME=jitsidevops.website
+      - SYNAPSE_SERVER_NAME=yourdomain.com
       - SYNAPSE_REPORT_STATS=no
     restart: always
     ports:
@@ -47,9 +47,10 @@ services:
     networks:
       - matrix
     ports:
-      - "8080:8080"   # внутренний порт для NPM
+      - "8080:8080"
     volumes:
       - ./wellknown/nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
 networks:
   matrix:
+

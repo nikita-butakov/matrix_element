@@ -1,9 +1,10 @@
 {
   "default_server_config": {
     "m.homeserver": {
-      "base_url": "https://jitsidevops.website",
-      "server_name": "jitsidevops.website"
+      "base_url": "https://yourdomain.com",
+      "server_name": "yourdomain.com"
     }
   },
   "disable_custom_urls": true
 }
+
