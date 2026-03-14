@@ -7,7 +7,7 @@ set -e
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Path to Nginx Proxy Manager certificates
-NPM_CERT_DIR="$BASE_DIR/npm/letsencrypt/live/npm-2"
+NPM_CERT_DIR="$BASE_DIR/npm/letsencrypt/live/npm-1"
 
 # Path to Synapse data directory
 SYNAPSE_DATA_DIR="$BASE_DIR/synapse/data"
