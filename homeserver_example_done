@@ -1,0 +1,51 @@
+# Configuration file for Synapse.
+#
+# This is a YAML file: see [1] for a quick introduction. Note in particular
+# that *indentation is important*: all the elements of a list or dictionary
+# should have the same indentation.
+#
+# [1] https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html
+#
+# For more information on how to configure Synapse, including a complete accounting of
+# each option, go to docs/usage/configuration/config_documentation.md or
+# https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html
+server_name: "jitsidevops.website"
+pid_file: /data/homeserver.pid
+
+# TLS
+tls_certificate_path: "/data/cert.pem"
+tls_private_key_path: "/data/key.pem"
+
+listeners:
+  # Client API
+  - port: 8008
+    type: http
+    tls: false
+    bind_addresses: ['0.0.0.0']
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+
+  # Federation
+  - port: 8448
+    type: http
+    tls: true
+    bind_addresses: ['0.0.0.0']
+    resources:
+      - names: [federation]
+database:
+  name: sqlite3
+  args:
+    database: /data/homeserver.db
+log_config: "/data/jitsidevops.website.log.config"
+media_store_path: /data/media_store
+registration_shared_secret: "cN0r7BcPbBqmv61VrEsn,1yDk=D9SXoy-~lcG&JSS*DSznRkoX"
+report_stats: false
+macaroon_secret_key: "g2+onnHMd7v*c21S=zsIo0Rl0R.9vHrM13t4_HQEavJdQUI*BO"
+form_secret: "aPlKI_U.H3^tg7xIR,.-,gIt3xgZ9dZ&Od^aCs+^H2ahIppZiS"
+signing_key_path: "/data/jitsidevops.website.signing.key"
+trusted_key_servers:
+  - server_name: "matrix.org"
+
+
+# vim:ft=yaml
