@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  synapse:
+    image: matrixdotorg/synapse:latest
+    container_name: synapse
+    restart: always
+    volumes:
+      - ./synapse/data:/data
+    environment:
+      - SYNAPSE_SERVER_NAME=yourdomain.com
+      - SYNAPSE_REPORT_STATS=no
+    ports:
+      - "8008:8008"   # Client API
+      - "8448:8448"   # Federation
+    networks:
+      - matrix
+
+  element:
+    image: vectorim/element-web:latest
+    container_name: element
+    restart: always
+    volumes:
+      - ./config.json:/app/config.json:ro
+    networks:
+      - matrix
+
+  npm:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx-proxy-manager
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "81:81"
+    volumes:
+      - ./npm/data:/data
+      - ./npm/letsencrypt:/etc/letsencrypt
+    networks:
+      - matrix
+
+  wellknown:
+    image: nginx:alpine
+    container_name: wellknown
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./wellknown/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./wellknown/files:/usr/share/nginx/html:ro
+    networks:
+      - matrix
+
+  coturn:
+    image: coturn/coturn:latest
+    container_name: coturn
+    restart: always
+    network_mode: "host"
+    volumes:
+      - ./coturn/turnserver.conf:/etc/coturn/turnserver.conf:ro
+      - ./coturn/data:/var/lib/coturn
+      - ./coturn/log:/var/log
+    command: ["-c", "/etc/coturn/turnserver.conf"]
+
+networks:
+  matrix:
