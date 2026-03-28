@@ -1,0 +1,33 @@
+server_name: "yourdomain.com"
+pid_file: /data/homeserver.pid
+
+# TLS
+tls_certificate_path: "/data/cert.pem"
+tls_private_key_path: "/data/key.pem"
+
+listeners:
+  # Client API
+  - port: 8008
+    type: http
+    tls: false
+    bind_addresses: ['0.0.0.0']
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+
+  # Federation
+  - port: 8448
+    type: http
+    tls: true
+    bind_addresses: ['0.0.0.0']
+    resources:
+      - names: [federation]
+
+turn_uris:
+  - "turn:turn.yourdomain.com:3478?transport=udp"
+  - "turn:turn.yourdomain.com:3478?transport=tcp"
+
+turn_shared_secret: "CHANGE_THIS_TO_LONG_RANDOM_SECRET"
+
+turn_user_lifetime: 86400000
+turn_allow_guests: true
