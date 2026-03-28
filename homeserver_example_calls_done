@@ -8,6 +8,7 @@
 #
 # For more information on how to configure Synapse, including a complete accounting of
 # each option, go to docs/usage/configuration/config_documentation.md or
+# https://element-hq.github.io/synapse/latest/usage/configuration/config_documentation.html
 server_name: "jitsidevops.website"
 pid_file: /data/homeserver.pid
 
@@ -37,7 +38,7 @@ turn_uris:
   - "turn:turn.jitsidevops.website:3478?transport=udp"
   - "turn:turn.jitsidevops.website:3478?transport=tcp"
 
-turn_shared_secret: "CHANGE_THIS_TO_LONG_RANDOM_SECRET"
+turn_shared_secret: "my_personal_secret_qwerty12345"
 
 turn_user_lifetime: 86400000
 turn_allow_guests: true
@@ -47,10 +48,10 @@ database:
     database: /data/homeserver.db
 log_config: "/data/jitsidevops.website.log.config"
 media_store_path: /data/media_store
-registration_shared_secret: "uNv8kmHm_OK6eu9BgM1GY+,oqrN;~mGC-mE::edpEiA_iFP,Q4"
+registration_shared_secret: "3KGyWrS,p,#zmlpkVslrfdHWz.G12@e~,4ho3l8BnC6767xWdv"
 report_stats: false
-macaroon_secret_key: "+--uHPog1Xh^3+9F,aRzki=8xKQ*W~x-P02LkcA&AQf*=_WsI5"
-form_secret: "I~o6P;WrH:qjs5Dpe7#OmD7qK1C:n7eaO-@_BM#T15seE-sDft"
+macaroon_secret_key: "_L334zhU@_tdsk46ntIDqcPTHzeOdScTsM54gg;tNInKCa@1fP"
+form_secret: "0+2IUUV#1aEi4=t1kkE49wDV6HQDkC1bKunl:KzdJl^5oK3A6n"
 signing_key_path: "/data/jitsidevops.website.signing.key"
 trusted_key_servers:
   - server_name: "matrix.org"
