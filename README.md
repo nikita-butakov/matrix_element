@@ -46,11 +46,11 @@ The guides include:
 ------------------------------------------------------------------------
 # 🔐 Features
 
-✔ Self-hosted Matrix server
-✔ End-to-end encryption (E2EE)
-✔ Federation with other Matrix servers
-✔ Built-in web client (Element)
-✔ Automatic SSL via Nginx Proxy Manager
+✔ Self-hosted Matrix server\
+✔ End-to-end encryption (E2EE)\
+✔ Federation with other Matrix servers\
+✔ Built-in web client (Element)\
+✔ Automatic SSL via Nginx Proxy Manager\
 ✔ Docker-based deployment
 
 ------------------------------------------------------------------------
