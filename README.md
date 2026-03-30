@@ -28,7 +28,6 @@ Detailed step-by-step instructions are available here:
 ## 🇷🇺 Русская версия
 
 **Без звонков (базовая установка):**
--
 - https://www.lifeblog.pro/kak-razvernut-svoj-bezopasnyj-messendzher-matrix-element
 
 **Со звонками:**
